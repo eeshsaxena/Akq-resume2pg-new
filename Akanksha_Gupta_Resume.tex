@@ -1,0 +1,230 @@
+%==============================================================
+%  Akanksha Gupta — Resume
+%  Single-column, ATS-friendly LaTeX template
+%  Compile with: pdflatex Akanksha_Gupta_Resume.tex
+%==============================================================
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[top=0.3in,bottom=0.3in,left=0.38in,right=0.38in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{XCharter}        % classic, elegant serif
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\definecolor{linkblue}{RGB}{0,0,170}
+\definecolor{rulegray}{RGB}{60,60,60}
+
+\hypersetup{colorlinks=true, urlcolor=linkblue, linkcolor=linkblue}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{0.86}          % comfortable line spacing for XCharter at 11pt
+
+%--------------------------------------------------------------
+%  Section headings: small caps, bold, with an underline rule
+%--------------------------------------------------------------
+\titleformat{\section}
+  {\LARGE\bfseries}{}{0em}{}
+  [\vspace{-0.85em}\color{rulegray}\rule{\linewidth}{0.8pt}]
+\titlespacing*{\section}{0pt}{2pt}{1pt}
+
+%--------------------------------------------------------------
+%  Bullet lists: tight but readable, with a hanging indent
+%--------------------------------------------------------------
+\setlist[itemize]{
+  leftmargin=1.3em,
+  itemsep=1pt,
+  topsep=2pt,
+  parsep=0pt,
+  partopsep=0pt,
+  label=\textbullet
+}
+
+%--------------------------------------------------------------
+%  Entry commands (consistent vertical rhythm between blocks)
+%--------------------------------------------------------------
+% Project / achievement entry: bold title (left), italic tech stack (right)
+\newcommand{\entry}[2]{%
+  \vspace{1pt}\noindent\textbf{#1}\hfill\textit{\small #2}\par\nopagebreak\vspace{1pt}%
+}
+% Clickable icon links (placed after a title). The makebox enlarges the
+% clickable hit area so the small icons are easy to click/tap.
+\newcommand{\gh}[1]{\,\href{#1}{\makebox[1.5em][l]{\normalfont\small\faGithub}}}
+\newcommand{\kg}[1]{\,\href{#1}{\makebox[1.5em][l]{\normalfont\small\faKaggle}}}
+% Organisation line: bold name (left), dates (right)
+\newcommand{\org}[2]{%
+  \vspace{1pt}\noindent\textbf{#1}\hfill {\small #2}\par\nopagebreak%
+}
+% Role line: italic role (left), italic location (right)
+\newcommand{\role}[2]{%
+  \noindent\textit{#1}\hfill\textit{\small #2}\par\nopagebreak\vspace{1pt}%
+}
+
+\begin{document}
+
+%==============================================================
+%  Header
+%==============================================================
+\begin{center}
+  {\fontsize{30}{34}\selectfont\scshape\bfseries Akanksha Gupta}\\[6pt]
+  {\normalsize Bengaluru, Karnataka, India}\\[7pt]
+  {\large\bfseries
+    \faPhone\,9410152288 \hspace{4pt}$|$\hspace{4pt}
+    \faEnvelope\,\href{mailto:akkigupta259@gmail.com}{akkigupta259@gmail.com} \hspace{4pt}$|$\hspace{4pt}
+    \faLinkedin\,\href{https://linkedin.com/in/akanksha-gupta-a9241028b}{akanksha-gupta} \hspace{4pt}$|$\hspace{4pt}
+    \faGithub\,\href{https://github.com/AkankshaGupta259}{AkankshaGupta259} \hspace{4pt}$|$\hspace{4pt}
+    \faGlobe\,\href{https://akankshagupta.org}{akankshagupta.org}
+  }
+\end{center}
+
+%==============================================================
+%  Summary
+%==============================================================
+\section*{Summary}
+Computer Science undergraduate (CPI 9.58) building across the stack: full-stack web
+applications with React, Next.js, FastAPI, and PostgreSQL; machine learning systems in
+PyTorch, scikit-learn, and computer vision; and data analysis and benchmarking. Kaggle
+Bronze medalist (287th of 4,017) and Silver medalist (246th of 6,425, team). Strong
+ownership of end-to-end delivery, documentation, and cross-team coordination.
+
+%==============================================================
+%  Work Experience
+%==============================================================
+\section*{Work Experience}
+
+\org{IIIT Sri City, HCI Lab}{May 2026 -- Jul 2026}
+\role{Research Intern, Wearable AI \& Accessibility}{Onsite}
+\begin{itemize}
+  \item Collaborated with a multidisciplinary team to design wearable AI applications for accessibility, applying object-oriented design and strong problem-solving to broadly defined problems.
+  \item Analyzed experiment data and benchmarked multiple model architectures across accuracy, latency, and deployment efficiency, flagging anomalies to identify scalable, low-cost configurations.
+  \item Owned technical documentation and reproducible workflows using Python and Git under Agile-style iterative development.
+\end{itemize}
+
+\org{Lumovate Intelligence}{Feb 2025 -- Apr 2025}
+\role{Software Development Intern (Full Stack)}{Remote}
+\begin{itemize}
+  \item Built full-stack application features end-to-end using React, Next.js, and MongoDB, working across front-end and back-end layers in a distributed, cross-functional team.
+  \item Designed RESTful APIs with Next.js API routes integrated with MongoDB to organize, query, and serve dynamic data; collaborated using Git in an Agile workflow.
+  \item Translated business and design requirements into responsive, production-ready components, ensuring cross-browser performance and maintainability.
+\end{itemize}
+
+%==============================================================
+%  Projects
+%==============================================================
+\section*{Projects}
+
+\entry{Real-Time Chat Application\gh{https://github.com/AkankshaGupta259/chat}}{Next.js, Supabase, PostgreSQL, Tailwind CSS}
+\begin{itemize}
+  \item Built a full-stack real-time chat platform with a PostgreSQL data model, supporting 50+ concurrent users.
+  \item Used Supabase WebSocket subscriptions to reach sub-100ms latency with a responsive UI across 3+ device types.
+  \item Reduced message delivery delay by 40\% through schema and query optimization across the client-server stack.
+\end{itemize}
+
+\entry{Nebula, AI Resume-to-JD Matching Tool\gh{https://github.com/AkankshaGupta259/nebula}}{Python, FastAPI, Next.js, NLTK}
+\begin{itemize}
+  \item Built an analyzer that scores resumes against job descriptions and returns a data-driven compatibility score out of 100, processing resumes in under 2 seconds.
+  \item Engineered a FastAPI and NLTK pipeline for keyword extraction and similarity scoring, extracting 20+ relevant keywords per analysis.
+  \item Delivered actionable recommendations through a clean dashboard, helping users improve resume match rates by up to 35\%.
+\end{itemize}
+
+\entry{Book-Scale AI Writing Detector\gh{https://github.com/AkankshaGupta259}}{Python, PyTorch, Hugging Face, scikit-learn, Streamlit}
+\begin{itemize}
+  \item Built a detector that estimates how much of a book was written with AI and where, using a six-model ensemble (fine-tuned RoBERTa-large, word-choice classifiers, Binoculars zero-shot) that lands within 4 points of the true AI share.
+  \item Validated on 2,229 human texts (0.4\% false-flag rate, 0 of 61 classics) and 14 AI-written books (all caught); hardened against 13 evasion attacks across 56 experiments on a V100 GPU server.
+  \item Shipped a Streamlit app and CLI with explainable reports, verified AI phrasing, and SHA-256 audit exports; covered by 157 automated tests.
+\end{itemize}
+
+\entry{Lightweight ISL Recognition using Ray-Ban Meta Smart Glasses\gh{https://github.com/AkankshaGupta259/Lightweight-ISL-Recognition-System}}{Python, PyTorch, OpenCV, MediaPipe}
+\begin{itemize}
+  \item Designed an end-to-end wearable sign-to-speech system for real-time, hands-free communication, with a low-latency WebRTC and MediaPipe pipeline supporting 300+ sign classes.
+  \item Benchmarked 8 Graph Convolutional Network architectures on accuracy, inference latency, and deployment feasibility.
+  \item Co-designed CGTGA, a dual-stream ST-GCN and CTR-GCN model with learnable fusion, reaching 85.0\% Top-1 on IndicSign (WACV 2027 paper).
+\end{itemize}
+
+\entry{Sonic-3D\gh{https://github.com/AkankshaGupta259/Sonic-3D}}{Python, PyTorch, MiDaS, OpenCV, NumPy, FFmpeg, Next.js}
+\begin{itemize}
+  \item Built a fully local pipeline using PyTorch and MiDaS to turn static 2D manga panels into spatial-audio videos without cloud APIs or GPU acceleration.
+  \item Customized the EasyOCR pipeline with a Union-Find algorithm, improving text grouping accuracy by 35\% while keeping peak memory below 8 GB RAM.
+\end{itemize}
+
+%==============================================================
+%  Technical Skills
+%==============================================================
+\section*{Technical Skills}
+\vspace{1pt}
+\begin{tabular}{@{}p{0.21\linewidth}@{\hspace{4pt}}p{0.75\linewidth}@{}}
+  \textbf{Languages}         & Python, C, C++, JavaScript, SQL, PHP \\[1pt]
+  \textbf{Frameworks \& Web} & React, Next.js, Node.js, FastAPI, REST APIs, HTML5, CSS3, Tailwind CSS, Streamlit \\[1pt]
+  \textbf{AI/ML \& Data}     & PyTorch, scikit-learn, OpenCV, MediaPipe, NLP, Hugging Face, Pandas, NumPy, Computer Vision, Statistical Benchmarking, Dashboards, MS Excel \\[1pt]
+  \textbf{Databases}         & PostgreSQL, MySQL, MongoDB, Supabase \\[1pt]
+  \textbf{Core CS}           & Object-Oriented Programming, Data Structures, Algorithms, DBMS, Operating Systems, Computer Networks \\[1pt]
+  \textbf{Tools \& Practices} & Git, Linux, Vercel, Figma, Agile/Scrum, Technical Documentation, Notion, Google Workspace \\
+\end{tabular}
+
+%==============================================================
+%  Achievements
+%==============================================================
+\section*{Achievements}
+
+\vspace{2pt}\noindent\textbf{Fenomenon'25 Ideathon:} First Prize --- Aero-5G, an ATC concept for low-altitude drones\par
+\vspace{2pt}\noindent\textbf{Flipkart GRID 6.0:} Semi-Finalist (2026)\par
+\vspace{2pt}\noindent\textbf{\href{https://www.codechef.com/users/crowd_queen_36}{CodeChef}:} 3-Star, peak rating 1740\par
+
+\entry{\href{https://www.kaggle.com/akkigupta2005}{Kaggle Silver Medal, RSNA Knee Abnormality Detection (246th of 6,425)\,{\small\faKaggle}}}{Python, PyTorch, Ensembling}
+\begin{itemize}
+  \item Team competition. Built a blended ensemble of public CoAtNet, R6 ConvNeXt-S, and S6 models with per-label weighting, reaching 0.944 private and 0.960 public scores.
+  \item Designed an osteoarthritis decorrelation post-processing step, validated pre-submission on 2,399 expert-labelled OAI knees (three of three cartilage proxies positive), and documented each submission in a pre-registered log.
+\end{itemize}
+
+\entry{\href{https://www.kaggle.com/akkigupta2005}{Kaggle Bronze Medal, BioHub Cell Tracking (287th of 4,017)\,{\small\faKaggle}}}{Python, PyTorch, ILP Optimization}
+\begin{itemize}
+  \item Competed in a team to improve 3D cell detection and tracking for microscopy data; built a sub-voxel soft-argmax refinement that improved coordinate precision.
+  \item Built an offline replay and validation pipeline on the competition scorer, identifying a 0.8-tick calibration gap to separate genuine improvements from misleading local scores.
+\end{itemize}
+
+%==============================================================
+%  Leadership
+%==============================================================
+\section*{Leadership}
+
+\org{Reserve Bank of India}{Nov 2025 -- Present}
+\role{RBI Youth Ambassador}{}
+\begin{itemize}
+  \item Planned and ran 4+ financial literacy sessions for 150+ participants, ensuring on-schedule delivery.
+  \item Acted as the primary liaison between RBI officials and institute stakeholders, reducing coordination delays.
+\end{itemize}
+
+\org{IIIT Manipur}{Aug 2024 -- Oct 2025}
+\role{Joint Technical Secretary}{Imphal, Manipur}
+\begin{itemize}
+  \item Led planning and execution of technical events and workshops, managing schedules, logistics, budgets, and stakeholder coordination.
+  \item Organized AHOUBA TechFest, the largest technical festival in Manipur, coordinating cross-functional teams across colleges.
+\end{itemize}
+
+%==============================================================
+%  Certifications
+%==============================================================
+\section*{Certifications}
+\begin{itemize}
+  \item NPTEL (Swayam): Business Intelligence \& Analytics (2026)
+  \item NPTEL (Swayam): Blockchain and its Applications (2026) --- 79\%
+  \item HP LIFE: Data Science and Analysis (2025)
+  \item NPTEL (Swayam): Introduction to Internet of Things (2026) --- 96\%
+  \item NPTEL (Swayam): Getting Started with Competitive Programming (2025)
+\end{itemize}
+
+%==============================================================
+%  Education
+%==============================================================
+\section*{Education}
+
+\org{Indian Institute of Information Technology, Manipur}{Aug 2023 -- Present}
+\role{B.Tech, Computer Science and Engineering (CPI: 9.58)}{Imphal, Manipur}
+
+\org{Scholars Home Senior Secondary School, Dehradun}{2022 -- 2023}
+\role{PCM with Computer Science (Class XII: 92.4\%, Class X: 98.4\%)}{Dehradun, Uttarakhand}
+
+\end{document}
